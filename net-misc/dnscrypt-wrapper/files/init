@@ -1,0 +1,40 @@
+#!/sbin/runscript
+
+depend() {
+  need net
+}
+
+start() {
+  ebegin "Starting dnscrypt-wrapper"
+  if [ -z "${LISTEN_ADDR}" ]; then
+    c_LISTEN_ADDR=""
+  else
+    c_LISTEN_ADDR="-a ${LISTEN_ADDR}"
+  fi
+  if [ -z "${PROVIDER_NAME}" ]; then
+    c_PROVIDER_NAME=""
+  else
+    c_PROVIDER_NAME="--provider-name=${PROVIDER_NAME}"
+  fi
+  if [ -z "${PROVIDER_CERT_FILE}" ]; then
+    c_PROVIDER_CERT_FILE=""
+  else
+    c_PROVIDER_CERT_FILE="--provider-cert-file=${PROVIDER_CERT_FILE}"
+  fi
+  if [ -z "${VERBOSE}" ]; then
+    c_VERBOSE=""
+  else
+    c_VERBOSE="-${VERBOSE}"
+  fi
+  start-stop-daemon --start \
+    --exec ${BINARY} \
+    -- -r ${RESOLVER_ADDR} --crypt-secretkey-file=${CRYPT_SECRETKEY_FILE} --crypt-publickey-file=${CRYPT_PUBLICKEY_FILE} -l ${LOGFILE} ${c_LISTEN_ADDR} ${c_PROVIDER_NAME} ${c_PROVIDER_CERT_FILE} ${c_VERBOSE} -d -p ${PIDFILE}
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping dnscrypt-wrapper"
+  start-stop-daemon --stop --quiet \
+    --pidfile ${PIDFILE}
+  eend $?
+}
