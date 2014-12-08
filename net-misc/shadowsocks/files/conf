@@ -1,0 +1,5 @@
+PIDFILE="/var/run/shadowsocks.pid"
+
+LOGFILE="/var/log/shadowsocks/shadowsocks.log"
+
+CONFIG_FILE="/etc/shadowsocks.json"

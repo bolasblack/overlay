@@ -1,0 +1,23 @@
+#!/sbin/runscript
+
+depend() {
+  need net
+}
+
+start() {
+  ebegin "Starting shadowsocks"
+  start-stop-daemon --start --quiet --background \
+    --make-pidfile --pidfile ${PIDFILE} \
+    --stdout ${LOGFILE} \
+    --stderr ${LOGFILE} \
+    --user shadowsocks \
+    --exec /usr/bin/ssserver \
+    -- -c ${CONFIG_FILE}
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping shadowsocks"
+  start-stop-daemon --stop --quiet --pidfile ${PIDFILE}
+  eend $?
+}
