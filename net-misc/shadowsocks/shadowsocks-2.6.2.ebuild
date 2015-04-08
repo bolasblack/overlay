@@ -25,6 +25,8 @@ pkg_setup() {
 }
 
 src_install() {
+	distutils-r1_src_install
+
 	keepdir /var/log/shadowsocks
 	fowners shadowsocks:shadowsocks /var/log/shadowsocks
 
