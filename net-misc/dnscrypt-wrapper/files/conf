@@ -9,8 +9,6 @@ RESOLVER_ADDR="8.8.8.8:53"
 
 CRYPT_SECRETKEY_FILE="/etc/dnscrypt-wrapper/example/crypt_secret.key"
 
-CRYPT_PUBLICKEY_FILE="/etc/dnscrypt-wrapper/example/crypt_public.key"
-
 # Optional configurations
 
 # Local address to listen on

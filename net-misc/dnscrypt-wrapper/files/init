@@ -28,7 +28,7 @@ start() {
   fi
   start-stop-daemon --start \
     --exec ${BINARY} \
-    -- -r ${RESOLVER_ADDR} --crypt-secretkey-file=${CRYPT_SECRETKEY_FILE} --crypt-publickey-file=${CRYPT_PUBLICKEY_FILE} -l ${LOGFILE} ${c_LISTEN_ADDR} ${c_PROVIDER_NAME} ${c_PROVIDER_CERT_FILE} ${c_VERBOSE} -d -p ${PIDFILE}
+    -- -r ${RESOLVER_ADDR} --crypt-secretkey-file=${CRYPT_SECRETKEY_FILE} -l ${LOGFILE} ${c_LISTEN_ADDR} ${c_PROVIDER_NAME} ${c_PROVIDER_CERT_FILE} ${c_VERBOSE} -d -p ${PIDFILE}
   eend $?
 }
 
