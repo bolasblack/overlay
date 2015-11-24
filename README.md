@@ -1,13 +1,12 @@
 # My Portage Overlay
 
 * net-misc/dnscrypt-wrapper: From https://github.com/Cofyc/portage-overlay/tree/master/net-misc/dnscrypt-wrapper
+* net-im/telegram-cli: From https://github.com/vysheng/tg/tree/master/gentoo/net-im/telegram-cli
 
 ## Usage
 
 ```bash
 mkdir -p /etc/portage/repos.conf
-mkdir -p /usr/local/overlays
-git clone https://github.com/bolasblack/overlay.git /usr/local/overlays/c4605
 ```
 
 Save content to `/etc/portage/repos.conf/c4605.conf`:
@@ -21,5 +20,5 @@ auto-sync = yes
 ```
 
 ```bash
-emerge sync
+emerge --sync
 ```
