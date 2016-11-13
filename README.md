@@ -1,6 +1,6 @@
 # My Portage Overlay
 
-* net-misc/dnscrypt-wrapper: From https://github.com/Cofyc/portage-overlay/tree/master/net-misc/dnscrypt-wrapper
+* net-misc/dnscrypt-wrapper: From https://github.com/Cofyc/portage-overlay/tree/master/net-misc/dnscrypt-wrapper (no longer maintained, [use docker instead](https://github.com/jedisct1/dnscrypt-server-docker))
 * net-im/telegram-cli: From https://github.com/vysheng/tg/tree/master/gentoo/net-im/telegram-cli
 
 ## Usage
